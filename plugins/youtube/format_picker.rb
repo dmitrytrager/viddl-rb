@@ -66,7 +66,10 @@ class FormatPicker
   end
 
   def get_available_formats_for_video(video)
-    video.available_itags.map { |itag| get_format_by_itag(itag) }
+    video
+      .available_itags
+      .map { |itag| get_format_by_itag(itag) }
+      .compact
   end
 
   def get_format_by_itag(itag)
